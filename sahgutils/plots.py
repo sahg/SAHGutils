@@ -44,7 +44,7 @@ def regression_plot(x, y, fig_name,
     ax.plot([minm, maxm], [minm, maxm], '--', color='lightgrey')
 
     ax.plot(x , y_hat, '-', c='gray', linewidth=2)
-    ax.scatter(x, y, s=20, c='k')
+    ax.scatter(X[:, 0], y, s=15, c='k')
 
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
