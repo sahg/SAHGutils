@@ -1,20 +1,32 @@
-def linfit(x, y, fig_name, xlabel='x', ylabel='y', title='scatter plot'):
+import os
+
+import numpy as np
+import scikits.statsmodels as sm
+import matplotlib.pyplot as plt
+
+def regression_plot(x, y, fig_name,
+                    xlabel='x', ylabel='y', title='scatter plot'):
     """Fit and plot a linear regression model through the data."""
 
     x = np.asanyarray(x)
+    X = sm.add_constant(x)
     y = np.asanyarray(y)
+    Y = np.array(y)
     
     # fit a linear regression model
-    model = ols(y, x, ylabel, xlabel)
-    b, a = model.b
+    model = sm.OLS(Y, X)
+    results = model.fit()
+    a, b = results.params
+
+    x = np.unique(x) # avoid MPL path simplification bug
     y_hat = a*x + b
 
     if b < 0:
-        info = u'Fitted line: %2.3fx - %2.3f \nR\N{SUPERSCRIPT TWO} = %2.3f' % (a, abs(b), model.R2)
+        info = u'Fitted line: %2.3fx - %2.3f \nR\N{SUPERSCRIPT TWO} = %2.3f' % (a, abs(b), results.rsquared)
     elif b == 0:
-        info = u'Fitted line: %2.3fx \nR\N{SUPERSCRIPT TWO} = %2.3f' % (a, model.R2)
+        info = u'Fitted line: %2.3fx \nR\N{SUPERSCRIPT TWO} = %2.3f' % (a, results.rsquared)
     else:
-        info = u'Fitted line: %2.3fx + %2.3f \nR\N{SUPERSCRIPT TWO} = %2.3f' % (a, abs(b), model.R2)
+        info = u'Fitted line: %2.3fx + %2.3f \nR\N{SUPERSCRIPT TWO} = %2.3f' % (a, abs(b), results.rsquared)
 
 
     # plot the results
@@ -22,8 +34,14 @@ def linfit(x, y, fig_name, xlabel='x', ylabel='y', title='scatter plot'):
     ax = fig.add_subplot(111)
     ax.set_title(title)
 
+    maxm = max(x.max(), y.max())
+    minm = min(x.min(), y.min())
+
+    maxm += 0.1*maxm
+    minm -= 0.1*maxm
+
     # 1:1 line
-    ax.plot([0, 100], [0, 100], '--', color='lightgrey')
+    ax.plot([minm, maxm], [minm, maxm], '--', color='lightgrey')
 
     ax.plot(x , y_hat, '-', c='gray', linewidth=2)
     ax.scatter(x, y, s=20, c='k')
@@ -39,8 +57,6 @@ def linfit(x, y, fig_name, xlabel='x', ylabel='y', title='scatter plot'):
     # Hide grid behind plot objects
     ax.set_axisbelow(True)
 
-    maxm = 100
-    minm = 0
     ax.set_xlim(minm, maxm)
     ax.set_ylim(minm, maxm)
 
