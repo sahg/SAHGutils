@@ -43,7 +43,7 @@ setup(
     packages=['sahgutils'],
     license='LICENSE.txt',
     description='Useful tools for data analysis and plots.',
-    long_description=open('README.rst').read(),
+    long_description=open('README.txt').read(),
 )
 
 if __name__ == '__main__':
