@@ -1,41 +1,23 @@
+"""
+Extract the RGB colour specifications from
+ColorBrewer_all_schemes_RGBonly3.csv and write them as lists in
+../sahgutils/_color_brewer.py.
+
+"""
 import os
 import csv
 
-def create_spec(scheme, key):
+def write_palette(fp, scheme):
+    pal_name = '_%s_cat%s_data' % (scheme[0]['ColorName'],
+                                   scheme[0]['NumOfColors'])
+
     ncolors = int(scheme[0]['NumOfColors'])
 
-    spec = []
-    for n in range(ncolors+1):
-        indx = n*(1.0/ncolors)
+    clist = []
+    for n in range(ncolors):
+        clist.append([scheme[n]['R'], scheme[n]['G'], scheme[n]['B']])
 
-        if n == 0:
-            x = int(scheme[0][key])
-            y = int(scheme[0][key])
-        elif n == ncolors:
-            x = int(scheme[ncolors-1][key])
-            y = int(scheme[ncolors-1][key])
-        else:
-            x = int(scheme[n-1][key])
-            y = int(scheme[n][key])
-
-        spec.append((indx, x/255.0, y/255.0))
-
-    return spec
-
-def write_palette(fp, scheme):
-    pal_name = '_%s%s_data' % (scheme[0]['ColorName'],
-                               scheme[0]['NumOfColors'])
-
-    red_spec = create_spec(scheme, 'R')
-    green_spec = create_spec(scheme, 'G')
-    blue_spec = create_spec(scheme, 'B')
-
-    cdict = {'red': tuple(red_spec),
-             'green': tuple(green_spec),
-             'blue': tuple(blue_spec)
-            }
-
-    fp.write('%s = %s\n\n' % (pal_name, cdict))
+    fp.write('%s = %s\n\n' % (pal_name, clist))
 
 if __name__ == '__main__':
     header = """\
