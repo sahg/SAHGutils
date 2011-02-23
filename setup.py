@@ -9,14 +9,14 @@ try:
         out = s.communicate()[0]
         GIT_REVISION = out.strip()
     else:
-        GIT_REVISION = ""
+        GIT_REVISION = "unknown"
 except WindowsError:
-    GIT_REVISION = ""
+    GIT_REVISION = "unknown"
 
-FULL_VERSION = '0.0.1dev'
+FULL_VERSION = '0.0.1-dev'
 if "dev" in FULL_VERSION:
     RELEASED = False
-    VERSION = FULL_VERSION+GIT_REVISION[:7]
+    VERSION = FULL_VERSION + '-' + GIT_REVISION[:7]
 else:
     RELEASED = True
     VERSION = FULL_VERSION
