@@ -1,3 +1,8 @@
+"""
+A collection of par-cooked plots. Just add data and textual seasoning
+to your taste.
+
+"""
 import os
 
 import numpy as np
