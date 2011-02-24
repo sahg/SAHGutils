@@ -7,7 +7,7 @@ ColorBrewer_all_schemes_RGBonly3.csv and write them as lists in
 import os
 import csv
 
-def write_palette(fp, scheme):
+def add_palette(cdict, scheme):
     pal_name = '_%s_cat%s_data' % (scheme[0]['ColorName'],
                                    scheme[0]['NumOfColors'])
 
@@ -15,9 +15,13 @@ def write_palette(fp, scheme):
 
     clist = []
     for n in range(ncolors):
-        clist.append([scheme[n]['R'], scheme[n]['G'], scheme[n]['B']])
+        r = int(scheme[n]['R'])/255.0
+        g = int(scheme[n]['G'])/255.0
+        b = int(scheme[n]['B'])/255.0
 
-    fp.write('%s = %s\n\n' % (pal_name, clist))
+        clist.append([r, g, b])
+
+    cdict[pal_name] = clist
 
 if __name__ == '__main__':
     header = """\
@@ -31,25 +35,27 @@ if __name__ == '__main__':
 
     fin_str = 'Apache-Style Software License for ColorBrewer software and ColorBrewer Color Schemes'
 
-    fp_out = open('../sahgutils/_color_brewer.py', 'w')
-    fp_out.write(header)
-
-    fp_in = open('ColorBrewer_all_schemes_RGBonly3.csv')
-    reader = csv.DictReader(fp_in)
-
     try:
+        fp_in = open('ColorBrewer_all_schemes_RGBonly3.csv')
+        reader = csv.DictReader(fp_in)
+
+        cdict = {}
         scheme = []
         for row in reader:
             if (row['ColorName'] == fin_str) and (len(scheme) > 0):
-                write_palette(fp_out, scheme)
+                add_palette(cdict, scheme)
                 break
             else:
                 if (row['ColorName'] != '') and (len(scheme) > 0):
-                    write_palette(fp_out, scheme)
+                    add_palette(cdict, scheme)
                     scheme = []
                     scheme.append(row)
                 else:
                     scheme.append(row)
+
+        fp_out = open('../sahgutils/_color_brewer.py', 'w')
+        fp_out.write(header)
+        fp_out.write('cdict = %s' % cdict)
 
     finally:
         fp_in.close()
