@@ -35,16 +35,16 @@ git_revision = '%s'
     finally:
         f.close()
 
-setup(
-    name='SAHGutils',
-    version=VERSION,
-    author='Scott Sinclair',
-    author_email='scott.sinclair.za@gmail.com',
-    packages=['sahgutils'],
-    license='LICENSE.txt',
-    description='Useful tools for data analysis and plots.',
-    long_description=open('README.txt').read(),
-)
-
 if __name__ == '__main__':
     generate_version_py("sahgutils/__dev_version.py")
+
+    setup(
+        name='SAHGutils',
+        version=VERSION,
+        author='Scott Sinclair',
+        author_email='scott.sinclair.za@gmail.com',
+        packages=['sahgutils'],
+        license='LICENSE.txt',
+        description='Useful tools for data analysis and plots.',
+        long_description=open('README.txt').read(),
+    )
