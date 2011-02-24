@@ -30,6 +30,13 @@ if __name__ == '__main__':
 # of the SAHGutils source distribution. Please see that script for
 # further details and don't hand edit this file.
 
+# These colormaps are based on color specifications and designs
+# developed by Cynthia Brewer (http://colorbrewer.org).  The
+# ColorBrewer palettes have been included under the terms of an
+# Apache-style license (for details, see the file
+# LICENSE_COLORBREWER.txt in the top-level directory of the SAHGutils
+# source distribution).
+
 
 """
 
