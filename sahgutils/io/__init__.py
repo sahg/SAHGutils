@@ -1,0 +1,14 @@
+"""Provides convenience utilities for assorted data files.
+
+This package provides a means of organizing the code developed
+at UKZN for handling the dataflow and processing of information
+for the WRC funded research project K5-1683 "Soil Moisture from
+Space".
+
+The interface isn't stable yet so be prepared to update your code
+on a regular basis...
+
+"""
+
+__author__ = 'Scott Sinclair'
+__version__ = '0.1'
