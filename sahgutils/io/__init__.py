@@ -9,6 +9,3 @@ The interface isn't stable yet so be prepared to update your code
 on a regular basis...
 
 """
-
-__author__ = 'Scott Sinclair'
-__version__ = '0.1'
