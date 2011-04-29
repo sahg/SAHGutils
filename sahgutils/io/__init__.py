@@ -9,3 +9,6 @@ The interface isn't stable yet so be prepared to update your code
 on a regular basis...
 
 """
+from trmm import *
+
+__all__ = filter(lambda s:not s.startswith('_'),dir())

@@ -1,3 +1,5 @@
+__all__ = ['TRMM3B42RTFile', 'read3B42RT']
+
 import sys
 from gzip import GzipFile
 
