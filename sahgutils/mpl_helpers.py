@@ -8,7 +8,8 @@ from matplotlib.colors import ListedColormap
 from _color_brewer import cdict
 
 def _search_key(cmap_name):
-    cat_range = range(3, 13).reverse()
+    cat_range = range(3, 13)
+    cat_range.reverse()
 
     for cat in cat_range:
         pal_name = '_%s_cat%s_data' % (cmap_name, cat)
