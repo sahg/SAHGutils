@@ -124,7 +124,7 @@ def rsa_lat_lon_scatter(fig_fname, title,
 def regression_plot(x, y, fig_name,
                     xlabel='x', ylabel='y', title='scatter plot'):
     """Fit and plot a linear regression model through the data."""
-    import scikits.statsmodels as sm
+    import scikits.statsmodels.api as sm
 
     x = np.asanyarray(x)
     X = sm.add_constant(x)
