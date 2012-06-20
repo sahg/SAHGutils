@@ -13,7 +13,7 @@ try:
 except WindowsError:
     GIT_REVISION = "unknown"
 
-FULL_VERSION = '0.0.1-dev'
+FULL_VERSION = '0.1.0-dev'
 if "dev" in FULL_VERSION:
     RELEASED = False
     VERSION = FULL_VERSION + '-' + GIT_REVISION[:7]
