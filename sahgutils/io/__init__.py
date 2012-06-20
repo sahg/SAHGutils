@@ -10,5 +10,6 @@ on a regular basis...
 
 """
 from trmm import *
+from csag import *
 
 __all__ = filter(lambda s:not s.startswith('_'),dir())
