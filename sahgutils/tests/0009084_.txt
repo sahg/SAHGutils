@@ -1,0 +1,87 @@
+FORMAT 1.0
+# CSAG STATION RECORD DATASET
+# THESE DATA CAN BE USED FOR ACADEMIC RESEARCH PROVIDED THAT THE FOLLOWING SOURCE IS ACKNOWLEDGED:
+#
+# Climate Systems Analysis Group (full reference document still to be published)
+# Cleaning methodology is based on the methodology developed by the GHCN:
+# Durrre, I.; Menne, M.J.; Gleason, B.E.; Houston, T.G.; Vose, R.S. Comprehensive automated quality assurance of daily surface observations. J. Appl. Meteorol. Clim. 2010, 49, 1615-1633
+# Original data obtained from the Computing Centre for Water Research (CCWR) and the South African Weather Service (SAWS) and should be acknowledged as such.
+# The data received shall not be provided to any third party.
+# Data and metadata available at http://www.csag.uct.ac.za
+#
+# VAR: Variable
+#    PPT     = precipitation (mm)
+#    TMAX    = maximum temperature (degree C)
+#    TMIN    = minimum temperature (degree C)
+#
+# COUNTRY        : Country Code (ISO3116 country codes)
+# ID             : Station identifier
+# NAME           : Station Name
+# LATITUDE       : Latitude in decimal degrees (+: North, -: South)
+# LONGITUDE      : Longitude in decimal degrees (+: East, -: West)
+# ALTITUDE       : Station height in meters
+# START_DATE     : Station Start Date YYYYMMDD
+# END_DATE       : Station End Date YYYYMMDD
+# SOUID          : Source identifier
+# DATE           : Date YYYYMMDD
+# UNDEF          : Undefine value -999
+# QC             : Quality code
+#                    _     = valid
+#                    1     = suspect
+#                    2     = disagree
+#                    3     = secondary
+#                    9     = missing
+#
+# EC             : error code
+#                _     = did not fail any quality assurance check
+#                D     = failed duplicate check
+#                G     = failed gap check
+#                I     = failed internal consistency check
+#                K     = failed streak/frequent-value check
+#                L     = failed check on length of multiday period
+#                M     = failed megaconsistency check
+#                N     = failed naught check
+#                O     = failed climatological outlier check
+#                R     = failed lagged range check
+#                S     = failed spatial consistency check
+#                T     = failed temporal consistency check
+#                W     = failed 99 check
+#                X     = failed bounds check
+#
+#
+#######################################################################################################################
+
+#THIS IS THE LEVEL 3 CLEANED DATASET - SPOOFED TO AVOID SHARING GENUINE DATA
+CLEANING | 3
+CREATED | 20120620
+VARIABLE | PPT
+COUNTRY | ZA
+ID | 0009084_
+NAME | KLEINDORP_-_POL
+LATITUDE | -36.54
+LONGITUDE | 22.05
+ALTITUDE | 153.00
+START_DATE | 19980301
+END_DATE | 19980320
+
+       ID      , SOUID  ,  DATE  ,  VAR   , QC , EC 
+      0009084_7,   SPOOF,19980301,    0.00,   _,   _
+      0009084_7,   SPOOF,19980302,    0.00,   _,   _
+      0009084_7,   SPOOF,19980303,    0.00,   _,   _
+      0009084_7,   SPOOF,19980304,    0.00,   _,   _
+      0009084_7,   SPOOF,19980305,    8.00,   _,   _
+      0009084_7,   SPOOF,19980306,    0.00,   _,   _
+      0009084_7,   SPOOF,19980307,    0.00,   _,   _
+      0009084_7,   SPOOF,19980308,    0.00,   _,   _
+      0009084_7,   SPOOF,19980309,    4.40,   _,   _
+      0009084_7,   SPOOF,19980310,    1.00,   _,   _
+      0009084_7,   SPOOF,19980311,    2.50,   _,   _
+      0009084_7,   SPOOF,19980312,    0.00,   _,   _
+      0009084_7,   SPOOF,19980313,    0.00,   _,   _
+      0009084_7,   SPOOF,19980314,    0.00,   _,   _
+      0009084_7,   SPOOF,19980315,    0.00,   _,   _
+      0009084_7,   SPOOF,19980316,    5.30,   _,   _
+      0009084_7,   SPOOF,19980317,   12.00,   _,   _
+      0009084_7,   SPOOF,19980318,    0.00,   _,   _
+      0009084_7,   SPOOF,19980319,    0.00,   _,   _
+      0009084_7,   SPOOF,19980320,    0.00,   _,   _

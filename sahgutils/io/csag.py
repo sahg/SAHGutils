@@ -87,13 +87,3 @@ class CSAGStationReader():
             _dates.append(datetime.strptime(ds, '%Y%m%d'))
 
         return _dates
-
-if __name__ == '__main__':
-    from pprint import pprint
-
-    csag_reader = CSAGStationReader('data/csag/0020866_.txt')
-
-    pprint(csag_reader.header())
-    pprint(csag_reader.data())
-    pprint(csag_reader.dates()[:10])
-
