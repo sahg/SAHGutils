@@ -4,11 +4,15 @@ to your taste.
 
 """
 import os
+import warnings
 
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import BoundaryNorm
-from mpl_toolkits.basemap import Basemap
+with warnings.catch_warnings():
+    # Silence annoying dateutil warnings
+    warnings.filterwarnings("ignore",category=UserWarning)
+    from mpl_toolkits.basemap import Basemap
 
 def rsa_lat_lon_scatter(fig_fname, title,
                         lons, lats, data, cmap, norm,
