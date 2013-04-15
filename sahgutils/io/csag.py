@@ -1,6 +1,7 @@
 """
-
-A reader for the CSAG rainfall station files..
+This module contains a class for reading the daily rainfall station
+files provided by the University of Cape Town's Climate Systems
+Analysis Group.
 
 """
 __all__ = ['CSAGStationReader']
@@ -10,6 +11,17 @@ from datetime import datetime
 import numpy as np
 
 class CSAGStationReader():
+    """Class for read operations on CSAG rainfall station files.
+
+    Example Usage:
+
+    >>> from sahgutils.io import CSAGStationReader
+    >>> csag_reader = CSAGStationReader('data/CSAG/0001517_.txt')
+    >>> header = csag_reader.header()
+    >>> dates = csag_reader.dates()
+    >>> precip = csag_reader.data()
+
+    """
     def __init__(self, filename, header_rows=65):
         self.filename = filename
         self._header_rows = header_rows
