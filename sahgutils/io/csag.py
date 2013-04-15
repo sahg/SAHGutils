@@ -76,6 +76,8 @@ class CSAGStationReader():
                                    dtype=['S9', 'S8', 'S8',
                                           'f8', 'S4', 'S4'],
                                    autostrip=True, names=True)
+        # Mask no-data values (defined as -999.0)
+        self._data[self._data < 0] = np.nan
         self._data_read = True
 
     def header(self):
