@@ -61,7 +61,7 @@ def categorical_cmap(cmap_name, num_cat=None, reverse=False):
 
     clist = cdict[pal_name]
     if reverse is True:
-        clist.reverse()
+        clist = cdict[pal_name][::-1]
 
     cmap = ListedColormap(clist)
 
