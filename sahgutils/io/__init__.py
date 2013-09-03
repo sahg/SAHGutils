@@ -18,5 +18,6 @@ The TRMM3B4XRTFile readers will not be available."""
     warnings.warn(msg, UserWarning)
 
 from csag import *
+from printing import printoptions
 
 __all__ = filter(lambda s:not s.startswith('_'),dir())
