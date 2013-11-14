@@ -19,5 +19,6 @@ The TRMM3B4XRTFile readers will not be available."""
 
 from csag import *
 from printing import printoptions
+from .bmp import BMPFile
 
 __all__ = filter(lambda s:not s.startswith('_'),dir())
