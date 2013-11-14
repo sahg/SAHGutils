@@ -24,6 +24,9 @@ class BMPFile:
             self._read_data()
 
     # Internal methods
+
+    # Adapted from http://blog.cykerway.com/post/65 accessed
+    # 2013-11-13
     def _read_header(self):
         #read header
         header_fmt = '=2sihhiiiihhiiiiii'
