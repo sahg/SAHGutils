@@ -65,7 +65,9 @@ class BMPFile:
 
         self._data = np.fromstring(data_string, np.int8)
 
-        self._data = self._data.reshape(128, 128)
+        self._data = self._data.reshape(self._header[7], self._header[6])
+
+        # Bitmap data origin is stored at bottom left
         self._data = np.flipud(self._data)
 
     # API methods
