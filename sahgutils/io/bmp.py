@@ -8,6 +8,22 @@ class BMPFile:
     This class handles a very specific subset of valid bitmap
     files. Namely 256 colour (8-bit) colour paletted bitmap files.
 
+    Example usage:
+
+    >>> bmp_file = BMPFile(filename)
+
+    >>> print('---HEADER---')
+    >>> bmp_header = bmp_file.header()
+    >>> print(bmp_header)
+
+    >>> print('---PALETTE---')
+    >>> bmp_palette = bmp_file.palette()
+    >>> print(bmp_palette)
+
+    >>> print('---DATA---')
+    >>> bmp_data = bmp_file.data()
+    >>> print(bmp_data)
+
     """
     def __init__(self, filename):
         self.filename = filename
